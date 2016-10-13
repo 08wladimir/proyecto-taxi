@@ -26,7 +26,7 @@
       <%= render 'layouts/menu' %>
       <%= yield %>
     <%else%>
-      <% if !current_page?(:controller => 'landing', :action => 'index') %>
+      <% if !current_page?(:controller => 'landing', :action => 'index') && !current_page?('/registrate') %>
         <% if usuario_signed_in? && !current_page?(:controller => 'welcome', :action => 'home') %>
           <%= render 'layouts/menuLte' %>
         <% else %>
