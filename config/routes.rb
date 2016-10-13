@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   
   root 'welcome#home'
   
+  get "/registrate", to: "landing#index"
   post "/pagar", to: "payments#create"
   get 'payments/index'
   post 'payments/create'
