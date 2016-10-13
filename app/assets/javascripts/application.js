@@ -14,5 +14,4 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require intl-tel-input
-//= require 'sprockets/es6'
 //= require_tree .
