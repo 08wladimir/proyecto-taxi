@@ -1,0 +1,1 @@
+json.array! @vehicle_per_usuarios, partial: 'vehicle_per_usuarios/vehicle_per_usuario', as: :vehicle_per_usuario

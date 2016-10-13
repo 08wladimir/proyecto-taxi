@@ -1,0 +1,488 @@
+<style>
+ #sticker {
+      background: #797979;
+      position: absolute;
+      right: 0px;
+      top: 90px;
+      color: white;
+      width: 300px;
+      font-family: Droid Sans;
+      font-size: 40px;
+      line-height: 0em;
+      font-weight: bold;
+      text-align: center;
+      padding: 5px;
+      margin: 0 auto;
+      text-shadow: 0 1px 1px rgba(0,0,0,.2);
+      border-radius: 0px;
+    }
+    #sticker1 {
+      background: #f1f1f1;
+      position: absolute;
+      right: -50px;
+      top: 140px;
+      color: black;
+      width: 300px;
+      font-family: Droid Sans;
+      font-size: 20px;
+      line-height: 1.6em;
+      font-weight: bold;
+      text-align: center;
+      padding: 5px;
+      margin: 0 auto;
+      text-shadow: 0 1px 1px rgba(0,0,0,.2);
+      border-radius: 0px;
+    }
+#myProgress {
+  width: 100%;
+  height: 30px;
+  background-color: #ddd;
+}
+#myBar {
+  margin-top: -30px;
+  width: 1%;
+  height: 100%;
+  background-color: #4CAF50;
+}
+#label {
+  text-align: center;
+  line-height: 30px;
+  margin-left: 20px;
+  font-size: 15px;
+  color: black;
+}
+</style>
+<section class="wrapper">
+<div class="signup-wrapper">
+<section class="signup-top">
+    <div class="signup-top-images">
+      <div class="signup-top-phones"></div>
+    </div>
+    <div class="signup-top-text">
+      <div class="signup-top-text-title">
+        Let's travel!
+      </div>
+      <div class="signup-top-text-subtitle">
+        <p>Welcome to the Blacktransfer Family.</p>
+        <p>Let's travel the world with you, give you some more details.</p>
+      </div>
+    </div>
+    <div id="sticker" style="z-index: 1000;">
+    <div id="myProgress">
+      <div id="label">Progress</div>
+  <div id="myBar">
+  </div>
+</div>
+</div>
+<div id="sticker1" style="z-index: 1000;">
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Can we help you?</button>
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Help</h4>
+        </div>
+        <div class="modal-body">
+          <p>HELP</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+     </div> 
+    </div>
+  </div>
+  </div>
+</section>
+  
+  <section class="signup-form">
+    <article class="form-container">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class:"form-vertical" }) do |f| %>
+        <div class="signup-form-section account">
+          <div class="signup-form-section-title"><p>Account</p></div>
+          <div class="signup-form-section-number blue">1</div>
+          <div class="signup-form-section-line"></div>
+            <div class="form-group ">
+              
+                <label for="email">Email</label>
+                <%= f.email_field :email, class: "form-control", placeholder:"nam@example.com" %>
+                
+
+                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                  <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                <% end %>
+                
+                  <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+                  <%= f.password_field :password, autocomplete: "off", class:"form-control", :onkeyup => "myFunction()", :id=>"progreso1" %>
+
+                  <%= f.label :password_confirmation %><br />
+                  <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", :onkeyup => "myFunction1()", :id=>"progreso2" %>
+                  
+                  <%= f.label :current_password %><br />
+                  <%= f.password_field :current_password, autocomplete: "off", class:"form-control", :onkeyup => "myFunction2()", :id=>"progreso3" %>
+            </div>
+
+
+
+    <div class="signup-form-section profile">
+        <div class="signup-form-section-title"><p>Profile</p></div>
+        <div class="signup-form-section-number blue">2</div>
+        <div class="signup-form-section-line"></div>
+            <div class="form-group">
+    
+                <label for="name">Full Name</label>
+                <div class="row form-row">
+                    <div class="col-md-6 col-xs-6 md-push-right-half sm-push-right-half xs-push-right-half">
+                        <%= f.text_field :firstName, class:"form-control", placeholder:"Roberto", :onkeyup => "myFunction3()", :id=>"progreso4" %>
+                    </div>
+                    <div class="col-md-6 col-xs-6 md-push-left-half xs-push-left-half">
+                        <%= f.text_field :lastName, class:"form-control", placeholder:"Gonzalez", :onkeyup => "myFunction4()", :id=>"progreso5" %>
+                    </div>
+                </div>
+            </div>
+
+            <label for="name" style="color: #666;">Identity Card</label>
+                <%= f.text_field :identityCard, class:"form-control", placeholder:"6312967814", :onkeyup => "myFunction5()", :id=>"progreso6" %>
+            
+            <div class="form-group">
+                <label for="name">Picture & Birthday</label>
+                <div class="row form-row">
+                    <div class="col-md-6 col-xs-6 md-push-right-half sm-push-right-half xs-push-right-half">
+                        <%= f.file_field :pictureProfile, class:"form-control" %>
+                    </div>
+                    <div class="col-md-6 col-xs-6 md-push-left-half xs-push-left-half">
+                        <%= f.text_field :birthdayDate, :class=>"form-control", :id=>"datepicker", placeholder:"04/02/1990" %>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="name">Cellphome & Language</label>
+                <div class="row form-row">
+                    <div class="col-md-6 col-xs-6 md-push-right-half sm-push-right-half xs-push-right-half">
+                        <%= f.text_field :cellphone, id:"phone", type:"tel", class:"form-control", placeholder:"350-321-1233", :onkeyup => "myFunction7()", :id=>"progreso8" %>
+                    </div>
+                    <div class="col-md-6 col-xs-6 md-push-left-half xs-push-left-half">
+                        <%= f.select(:language, ['English', 'Español'], {include_blank: "Please select..."}, { :class=> 'form-control' }) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="signup-form-section payment">
+            <div class="signup-form-section-title"><p>Payment</p></div>
+            <div class="signup-form-section-number blue">3</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label for="cardNumber">CARD NUMBER</label>
+                            <div class="input-group">
+                                <%= f.text_field :paymentOption, type:"number" ,class:"form-control", placeholder:"Valid Card Number", :onkeyup => "myFunction8()", :id=>"progreso9" %>
+                                <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+                            </div>
+                        </div>                            
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-7 col-md-7">
+                        <div class="form-group">
+                            <label for="expMonth">EXPIRATION DATE</label>
+                            <div class="col-xs-6 col-lg-6 pl-ziro">
+                                <%= f.text_field :expirateMM, type:"number" ,class:"form-control", placeholder:"MM" %>
+                            </div>
+                            <div class="col-xs-6 col-lg-6 pl-ziro">
+                                <%= f.text_field :expirateYY, type:"number" ,class:"form-control", placeholder:"YY" %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-5 col-md-5 pull-right">
+                        <div class="form-group">
+                            <label for="cvCode">CV CODE</label>
+                            <%= f.text_field :cvCode, type:"password" ,class:"form-control", placeholder:"CV" %>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label for="couponCode">COUPON CODE</label>
+                            <%= f.text_field :cuponCode, type:"text" ,class:"form-control", placeholder:"Promo12345", :onkeyup => "myFunction9()", :id=>"progreso10" %>
+                        </div>
+                    </div>                        
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                    </div>
+                </div>
+                <div class="row" style="display:none;">
+                    <div class="col-xs-12">
+                        <p class="payment-errors"></p>
+                    </div>
+                </div>
+            </div>
+
+        <div class="signup-form-section submit">
+          <div class="col-md-12">
+            <img class="loader defer_image_loading" src="https://d1a3f4spazzrp4.cloudfront.net/free-candy/images/gfx/loader.a5b022ab0fad102f521a454df3ceb117.gif" data-src="https://d1a3f4spazzrp4.cloudfront.net/free-candy/images/gfx/loader.a5b022ab0fad102f521a454df3ceb117.gif">
+              <div class="form-group">
+              <%= f.submit "Save", class:"btn btn-success btn-lg btn-block" %>
+              </div>
+          </div>
+          <div class="signup-form-section-number blue"></div>
+        </div>
+
+        <div class="form-group agree-terms">
+            <p>When you create an account, you agree to our <a href="#">Terms and Conditions</a> and our <a href="#">privacy policy</a>.</p>
+        </div>
+      <%end%>
+    </article>
+  </section>
+</div>
+</section>
+
+
+<script>
+    //Phone Country picker
+    $("#phone").intlTelInput();
+    //Datepicker
+    $(document).ready(function() {
+        $("#datepicker").datepicker({
+        changeYear:true,
+        yearRange: "1920:2025"
+        });
+    });
+    
+</script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script>
+    $(window).load(function(){
+      $("#sticker").sticky({ topSpacing: 120, center:true, className:"hey" });
+    });
+  </script>
+  <script>
+    $(window).load(function(){
+      $("#sticker1").sticky({ topSpacing: 160, center:true, className:"hey" });
+    });
+  </script>
+<script>
+$(document).ready(function(){
+    $("#myBtn").click(function(){
+        $("#myModal").modal();
+    });
+});
+</script>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("progreso1").value;
+    if(x.length > 6){
+      $(document).ready(function(){
+    $("input").keydown(function(){
+  var elem = document.getElementById("myBar");
+  var width = 10;
+  var id = setInterval(frame, 100);
+  function frame() {
+    var elem = document.getElementById("myBar");
+    if (width >= 100) {
+      clearInterval(id);
+    } else {
+      width = width + 1000000;
+      elem.style.width = 10 + '%';
+    }
+  }
+    });
+});
+    }
+}
+function myFunction1() {
+    var x = document.getElementById("progreso2").value;
+    if(x.length > 6){
+      $(document).ready(function(){
+    $("input").keydown(function(){
+  var elem = document.getElementById("myBar");
+  var width = 10;
+  var id = setInterval(frame, 100);
+  function frame() {
+    var elem = document.getElementById("myBar");
+    if (width >= 100) {
+      clearInterval(id);
+    } else {
+      width = width + 1000000;
+      elem.style.width = 20 + '%';
+    }
+  }
+    });
+});
+    }
+}
+function myFunction2() {
+    var x = document.getElementById("progreso3").value;
+    if(x.length > 6){
+      $(document).ready(function(){
+    $("input").keydown(function(){
+  var elem = document.getElementById("myBar");
+  var width = 10;
+  var id = setInterval(frame, 100);
+  function frame() {
+    var elem = document.getElementById("myBar");
+    if (width >= 100) {
+      clearInterval(id);
+    } else {
+      width = width + 1000000;
+      elem.style.width = 30 + '%';
+    }
+  }
+    });
+});
+    }
+}
+function myFunction3() {
+    var x = document.getElementById("progreso4").value;
+    if(x.length > 6){
+      $(document).ready(function(){
+    $("input").keydown(function(){
+  var elem = document.getElementById("myBar");
+  var width = 10;
+  var id = setInterval(frame, 100);
+  function frame() {
+    var elem = document.getElementById("myBar");
+    if (width >= 100) {
+      clearInterval(id);
+    } else {
+      width = width + 1000000;
+      elem.style.width = 40 + '%';
+    }
+  }
+    });
+});
+    }
+}
+function myFunction4() {
+    var x = document.getElementById("progreso5").value;
+    if(x.length > 6){
+      $(document).ready(function(){
+    $("input").keydown(function(){
+  var elem = document.getElementById("myBar");
+  var width = 10;
+  var id = setInterval(frame, 100);
+  function frame() {
+    var elem = document.getElementById("myBar");
+    if (width >= 100) {
+      clearInterval(id);
+    } else {
+      width = width + 1000000;
+      elem.style.width = 50 + '%';
+    }
+  }
+    });
+});
+    }
+}
+function myFunction5() {
+    var x = document.getElementById("progreso6").value;
+    if(x.length > 6){
+      $(document).ready(function(){
+    $("input").keydown(function(){
+  var elem = document.getElementById("myBar");
+  var width = 10;
+  var id = setInterval(frame, 100);
+  function frame() {
+    var elem = document.getElementById("myBar");
+    if (width >= 100) {
+      clearInterval(id);
+    } else {
+      width = width + 1000000;
+      elem.style.width = 60 + '%';
+    }
+  }
+    });
+});
+    }
+}
+function myFunction6() {
+    var x = document.getElementById("progreso7").value;
+    if(x.length > 6){
+      $(document).ready(function(){
+    $("input").keydown(function(){
+  var elem = document.getElementById("myBar");
+  var width = 10;
+  var id = setInterval(frame, 100);
+  function frame() {
+    var elem = document.getElementById("myBar");
+    if (width >= 100) {
+      clearInterval(id);
+    } else {
+      width = width + 1000000;
+      elem.style.width = 70 + '%';
+    }
+  }
+    });
+});
+    }
+}
+function myFunction7() {
+    var x = document.getElementById("progreso8").value;
+    if(x.length > 6){
+      $(document).ready(function(){
+    $("input").keydown(function(){
+  var elem = document.getElementById("myBar");
+  var width = 10;
+  var id = setInterval(frame, 100);
+  function frame() {
+    var elem = document.getElementById("myBar");
+    if (width >= 100) {
+      clearInterval(id);
+    } else {
+      width = width + 1000000;
+      elem.style.width = 80 + '%';
+    }
+  }
+    });
+});
+    }
+}
+function myFunction8() {
+    var x = document.getElementById("progreso9").value;
+    if(x.length > 6){
+      $(document).ready(function(){
+    $("input").keydown(function(){
+  var elem = document.getElementById("myBar");
+  var width = 10;
+  var id = setInterval(frame, 100);
+  function frame() {
+    var elem = document.getElementById("myBar");
+    if (width >= 100) {
+      clearInterval(id);
+    } else {
+      width = width + 1000000;
+      elem.style.width = 90 + '%';
+    }
+  }
+    });
+});
+    }
+}
+function myFunction9() {
+    var x = document.getElementById("progreso10").value;
+    if(x.length > 6){
+      $(document).ready(function(){
+    $("input").keydown(function(){
+  var elem = document.getElementById("myBar");
+  var width = 10;
+  var id = setInterval(frame, 100);
+  function frame() {
+    var elem = document.getElementById("myBar");
+    if (width >= 100) {
+      clearInterval(id);
+    } else {
+      width = width + 1000000;
+      elem.style.width = 100 + '%';
+    }
+  }
+    });
+});
+    }
+}
+</script>

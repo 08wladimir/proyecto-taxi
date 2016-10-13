@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vehicule: one
+  usuario: one
+  insurance: MyString
+  propertyCard: MyString
+  supportToDisable: MyString
+  certificategases: MyString
+  colorVehicle: MyString
+  plateVehicle: MyString
+
+two:
+  vehicule: two
+  usuario: two
+  insurance: MyString
+  propertyCard: MyString
+  supportToDisable: MyString
+  certificategases: MyString
+  colorVehicle: MyString
+  plateVehicle: MyString

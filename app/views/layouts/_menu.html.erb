@@ -1,0 +1,162 @@
+<style>
+section{
+  background: #f1f1f1;
+}
+.banner{
+  background:red;
+  min-height:200px;
+}
+.banner .row{
+  text-align:center;
+  margin-top:50px;
+}
+.banner h1{
+  color:white;
+}
+.opaque-navbar {
+    background-color: rgba(0,0,0,0.5);
+  /* Transparent = rgba(0,0,0,0) / Translucent = (0,0,0,0.5)  */
+    height: 30px !important;
+    border-bottom: 0px;
+    transition: background-color .5s ease 0s;
+}
+.opaque-navbar2 {
+    background-color: rgba(0,0,0,0);
+  /* Transparent = rgba(0,0,0,0) / Translucent = (0,0,0,0.5)  */
+    height: 30px !important;
+    border-bottom: 0px;
+    transition: background-color .5s ease 0s;
+}
+.opaque-navbar.opaque {
+    background-color: black;
+    height: 70px;
+    transition: background-color .5s ease 0s;
+}
+ul.dropdown-menu {
+    background-color: black;
+}
+.letragrande{
+  font-size: 18px;
+}
+.letramediana{
+  font-size: 15px;
+}
+.blanco{
+  color: #fff !important;
+  padding-right: 20px;
+  padding: 15px 15px;
+}
+.inline{
+  display: inline;
+}
+.navbar-right{
+  margin-right: 20px;
+}
+.titlestyle{
+  color: white !important;
+  font-size: 28px;
+}
+.transparente{
+  background-color: transparent;
+   background: transparent;
+   border-color: transparent;
+}
+.navbar-brand {
+  padding: 0px;
+}
+.navbar-brand>img {
+  height: 100%;
+  padding-left: 35px;
+  width: auto;
+}
+
+/* Pantallas donde su medida sea el max 768 o hacia abajo no mostrarán el menú normal */
+@media only screen and (max-width: 768px) { 
+  .hid{
+    visibility: hidden;
+  }
+  
+  .opaque-navbar {
+    background-color: rgb(0,0,0);
+  /* Transparent = rgba(0,0,0,0) / Translucent = (0,0,0,0.5)  */
+    height: 30px !important;
+    border-bottom: 0px;
+    transition: background-color .5s ease 0s;
+  }
+
+}
+</style>
+
+<!--Barra de Menú 1 -->
+<nav class="navbar navbar-default letragrande navbar-fixed-top opaque-navbar">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand titlestyle" href="<%= welcome_home_path %>"><img src="../Logo.png" alt="Dispute Bills"></a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse rightMenu" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'BECOME A PARTNER', welcome_services_path, class:"blanco" %></li>
+        <li><%= link_to 'CORPORATE', welcome_home_path, class:"blanco" %></li>
+        <li><%= link_to 'SUPPORT', welcome_aboutus_path, class:"blanco" %></li>
+        <form class="navbar-form pull-left">
+          <select name="" id="" class="form-control" style="width: 160px;">
+            <option value="1">ENGLISH</option>
+            <option value="2">ESPAÑOL</option>
+          </select>
+          <!--<button type="submit" class="btn btn-default">Submit</button>-->
+        </form>
+        <% if !usuario_signed_in? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle blanco" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LOGIN<span class="caret"></span></a>
+            <%= render 'devise/sessions/login' %>
+          </li>
+        <%else%>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle blanco" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= "Hi, "+current_usuario.firstName %> <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Edit Profile", edit_usuario_registration_path(current_usuario) %></li>
+              <li><%= link_to "Sign Out", destroy_usuario_session_path, method: :delete %></li>
+            </ul>
+          </li>
+        <%end%>  
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<% if !current_page?(:controller => 'welcome', :action => 'controlpanel') %>
+<!-- Barra de Menú 2 -->
+<nav class="navbar navbar-default navbar-fixed-top hidden-xs opaque-navbar transparente hid" style="margin-top: 3%;">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav navbar-right letramediana" >
+      <li><%= link_to 'HOW IT WORKS', welcome_aboutus_path, class:"blanco" %></li>
+      <li><%= link_to 'SERVICES', welcome_services_path, class:"blanco" %></li>
+      <li><%= link_to 'CONTACT', welcome_contact_path, class:"blanco" %></li>
+      <% if !usuario_signed_in? %>
+        <li><%= link_to "REGISTER", new_usuario_registration_path, class:"blanco" %></li>
+      <%else%>
+        <li><%= link_to "MY BOOKING", nil, class:"blanco" %></li>
+      <%end%>
+    </ul>
+  </div>
+</nav>
+<%end%>
+<script>
+  $(window).scroll(function() {
+    if($(this).scrollTop() > 50)  /*height in pixels when the navbar becomes non opaque*/ 
+    {
+        $('.opaque-navbar').addClass('opaque');
+    } else {
+        $('.opaque-navbar').removeClass('opaque');
+    }
+  });
+</script>

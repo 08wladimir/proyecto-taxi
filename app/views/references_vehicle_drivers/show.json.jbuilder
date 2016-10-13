@@ -1,0 +1,1 @@
+json.partial! "references_vehicle_drivers/references_vehicle_driver", references_vehicle_driver: @references_vehicle_driver

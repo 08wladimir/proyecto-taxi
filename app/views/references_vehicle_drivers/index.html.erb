@@ -1,0 +1,39 @@
+<style>
+  .tamano{
+    font-size: 0.6em;
+  }
+  .sizex{
+    font-size: 1.5em;
+  }
+</style>
+<p id="notice"><%= notice %></p>
+<h2 class="text-center">References<br><%= link_to 'New References', new_references_vehicle_driver_path, class:"btn btn-default" %></h2><br>
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Driver</th>
+        <th>Vehicule</th>
+        <th>Token</th>
+        <th colspan="3">Actions</th>
+      </tr>
+    </thead>
+  
+    <tbody class=" table table-striped">
+      <% @references_vehicle_drivers.each do |references_vehicle_driver| %>
+        <tr>
+          <td><%= references_vehicle_driver.driver.name %></td>
+          <td><%= references_vehicle_driver.VehiclePerUsuario.vehicule.model %></td>
+          <td><%= references_vehicle_driver.token %></td>
+          <td>
+            <%= link_to '<i class="fa fa-eye sizex"></i>'.html_safe, references_vehicle_driver, class:"btn btn-primary tamano" %>
+            <%= link_to '<i class="fa fa-ban sizex"></i>'.html_safe, nil, class:"btn btn-danger tamano" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= will_paginate @references_vehicle_drivers, renderer: BootstrapPagination::Rails %>

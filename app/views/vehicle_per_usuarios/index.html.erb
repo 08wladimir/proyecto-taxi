@@ -1,0 +1,40 @@
+<style>
+  .tamano{
+    font-size: 0.6em;
+  }
+  .sizex{
+    font-size: 1.5em;
+  }
+</style>
+<p id="notice"><%= notice %></p>
+<h2 class="text-center">Your Vehicles<br><%= link_to "New Vehicle", new_vehicle_per_usuario_path, class: "btn btn-default" %></h2><br>
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover" >
+    <thead>
+      <tr>
+        <th>Vehiculo</th>
+        <th>License Plate</th>
+        <th>Vehicle Color</th>
+        <th>Created At</th>
+        <th colspan="3">Actions</th>
+      </tr>
+    </thead>
+  
+    <tbody class=" table table-striped">
+      <% @vehicle_per_usuarios.each do |vehicle_per_usuario| %>
+        <tr>
+          <td><%= vehicle_per_usuario.vehicule.brand %> - <%= vehicle_per_usuario.vehicule.model %></td>
+          <td><%= vehicle_per_usuario.plateVehicle %></td>
+          <td><div style="width:30px;height:25px;background-color:<%= vehicle_per_usuario.colorVehicle %>"></div></td>
+          <td><%= vehicle_per_usuario.created_at %></td>
+          <td><%= link_to '<i class="fa fa-eye sizex"></i>'.html_safe, vehicle_per_usuario, class:"btn btn-primary tamano" %>
+          <%= link_to '<i class="fa fa-pencil sizex"></i>'.html_safe, edit_vehicle_per_usuario_path(vehicle_per_usuario), class:"btn btn-success tamano" %>
+          <%= link_to '<i class="fa fa-trash sizex"></i>'.html_safe, vehicle_per_usuario, method: :delete, data: { confirm: 'Do you want to remove this Vehicle?' }, class:"btn btn-danger tamano" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= will_paginate @vehicle_per_usuarios, renderer: BootstrapPagination::Rails %>

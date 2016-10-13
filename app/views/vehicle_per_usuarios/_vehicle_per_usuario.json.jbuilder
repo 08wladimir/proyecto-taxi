@@ -1,0 +1,2 @@
+json.extract! vehicle_per_usuario, :id, :vehicule_id, :usuario_id, :insurance, :propertyCard, :supportToDisable, :certificategases, :colorVehicle, :plateVehicle, :created_at, :updated_at
+json.url vehicle_per_usuario_url(vehicle_per_usuario, format: :json)

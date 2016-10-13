@@ -1,0 +1,33 @@
+<style>
+  .background-login{
+    background: rgba(0, 0, 0, .6) !important;
+    width: 300px !important;
+    margin-top: 30px !important; /* Espacio entre la barra y el dropdown del login */
+    padding: 30px;
+  }
+</style>
+
+<ul class="dropdown-menu background-login animated bounceInDown" style="border-radius: 5px;">
+  <h3 style="margin-top: -5px; color:white"; class="text-center">LOGIN</h3>
+  <%= form_for(resource, as: resource_name, :html => {:class=> "form"}, url: session_path(resource_name)) do |f| %>
+    <div class="form-group">
+		  <div class="input-group">
+		    <div class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></div>
+        <%= f.email_field :email, autofocus: true, placeholder:"Email", class:"form-control" %>
+      </div>
+    </div>
+    
+    <div class="form-group">
+		  <div class="input-group">
+		    <div class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></div>
+        <%= f.password_field :password, autocomplete: "off", placeholder:"Password", class:"form-control" %>
+      </div>
+    </div>
+    
+    <div class="actions">
+      <%= button_tag type: 'submit', class: "form-control btn btn-primary" do %>
+        LOG IN<i class="fa fa-paper-plane" style="padding-left: 6px;" aria-hidden="true"></i>
+      <% end %>
+    </div>
+  <% end %>
+</ul>

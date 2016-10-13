@@ -1,0 +1,701 @@
+<style>
+	body{
+		background: url(../Banner/BannerHome.jpg);
+		background-color: #444;
+	    background-size: cover;
+	    background-repeat: no-repeat;
+	    /*background-position: center center;  
+	    Se comenta xq crea conflicto en el footer */
+   }
+	.delaylogo{
+		animation-delay:0.5s;
+	}
+	.delayform{
+		animation-delay:0.8s;
+	}
+	.background-form{
+		background: rgba(0, 0, 0, .6);
+	}
+	.a {
+	color: #e8e3db;
+	outline: 0;
+	font-weight: bold;
+	-webkit-transition: all .8s ease;
+	transition: all .8s ease;
+} 
+.a:hover {
+	text-decoration: none;
+	color: #1f2222;
+	-webkit-transition: all .8s ease;
+	transition: all .8s ease;
+}
+.fullscreen {
+    width:100%;
+    min-height:100%;
+	background-repeat:no-repeat;
+    background-position:50% 50%;
+    background-position:50% 50%\9 !important;
+}
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+#menu {
+	z-index: 99;
+}
+.logo {
+	margin: 100px 0 40px 0;
+}
+.logo {
+	width: 150px; 
+	height: 37px
+}
+.landing .h1{
+	font-size: 56px;
+	font-weight: 300;
+	color: #fff;
+	margin: 30px 0 30px 0;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+}
+.landing .p, .landing .h2 {
+	color: #fff;
+}
+.landing-text {
+	margin-bottom: 20px;
+}
+.landing-text .p {
+	font-size: 17px !important; 
+}
+
+#policy {
+	padding: 100px 0 70px;
+}
+#intro {
+	padding: 100px 0 70px;
+}
+#intro .h2 {
+	font-size: 40px;
+	font-weight: 300;
+	margin: 15px 0 15px 0;
+}
+.btn-section {
+	padding-top: 20px;
+}
+.subscribe {
+	color: #fff;
+}
+.subscribe .p {
+	margin: 30px auto 30px;
+}
+.subscribe-form {
+	max-width: 400px;
+	margin: 50px auto 150px;
+	text-align: center;
+	overflow: hidden;
+}
+.subscribe-form {
+	position: relative;
+}
+.subscribe-form {
+	max-width: 85%;
+	position: relative;
+	padding: 5px 25px;
+}
+.subscribe-form .form-control {
+	border-radius: 4px 0 0 4px;
+	border: none;
+	background-color: rgba(255, 255, 255, 0.6);
+	color: #333;
+	font-size: 1.2em;
+	height: 55px;
+}
+.subscribe-form {
+	border-radius: 0 4px 4px 0;
+	background-color: #d27e04;
+	color: #ffffff;
+	font-size: 1em;
+	line-height: 52px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	padding: 0 30px;
+	margin: 0;
+	-webkit-transition: all .8s ease;
+	transition: all .8s ease;
+}
+.subscribe-form .btn {
+	height: 55px;
+}
+.subscribe-form .btn:hover {
+	background-color: #c07202;
+	color: #fff;
+	-webkit-transition: all .8s ease;
+	transition: all .8s ease;
+}
+.subscribe-form .form-control::-webkit-input-placeholder {
+	color: #333;
+}
+.subscribe-form .form-control:-moz-placeholder { 
+	color: #333;  
+}
+.subscribe-form .form-control::-moz-placeholder { 
+	color: #333;  
+}
+.subscribe-form .form-control:-ms-input-placeholder {  
+	color: #333;  
+}
+#package {
+	padding-top: 100px;
+}
+.title-line {
+    width: 100px;
+    height: 3px;
+    margin: 0 auto;
+    background: #d27e04;
+}
+.price-box {
+	border: solid 1px #d1d1d1;
+}
+.package-option {
+	padding: 50px 0 100px;
+}
+.package-option {
+	padding: 0;
+}
+.price-heading  {
+	margin-top: 0;
+}
+.price-heading .i {
+	color: #d1d1d1;
+	font-size: 75px;
+	margin-top: 20px;
+}
+.price-group {
+	padding: 30px 0 10px;
+}
+.price-group .dollar {
+	font-size: 20px;
+	position: relative;
+	bottom: 48px;
+}
+.price-group .price {
+	color: #d27e04;
+	font-size: 90px;
+	font-weight: 500;
+}
+.price-group .time {
+	font-size: 18px;
+}
+.price-feature {
+	margin-left: 30px;
+	margin-right: 30px;
+	list-style: none;
+	border-bottom: solid 1px #d1d1d1;
+	line-height: 40px;
+}
+.btn-price {
+	margin: 5px 0 15px;
+	font-size: 17px;
+	padding: 7px 35px;
+	height: 40px;
+	background: #d27e04;
+	transition: all 0.4s;
+	color: white;
+	border-radius: 4px;	
+}
+.btn-price:hover {
+	background: #c07202;
+	color: white;
+}
+
+.owl-theme .owl-controls .owl-page{
+	background: #d27e04;
+}
+.action {
+	color: #fff;
+}
+.action .h2 {
+	margin-top: 100px;
+	font-size: 40px;
+	font-weight: 300;
+}
+.download-cta {
+	padding: 50px 0 160px;
+}
+#contact {
+	width: 100%;
+	min-height: 100%;
+}
+#contact  .h2{
+	color: white;
+}
+.ul-address .a{
+	font-weight: normal;
+}
+.ul-address .a:hover {
+	color: white;
+}
+.ul-address {
+	padding-right: 20px; 
+	margin-bottom: 8px; 
+	list-style: none;
+	color: white;
+}
+.ul-address .i{
+	margin-left: 15px;
+	position: absolute; 
+	left: 0;
+	color: #d27e04; 
+	font-size: 25px;
+	line-height: 30px;
+}
+.contact-row {
+	margin: 100px 0 100px;
+}
+#contact-form {
+	margin: 0 auto;
+}
+#contact-form {
+	position: relative;
+	padding: 5px 25px;
+	width: 100%;
+}
+#contact-form {
+	position: relative;
+	padding: 10px 25px;
+	width: 100%;
+	height: 120px !important;
+}
+#contact-form .form-control {
+	border-radius: 0;
+	border: solid 1px #dadada;
+	background-color: #fff;
+	color: #333;
+	font-size: 1.2em;
+	height: 55px;
+}
+#contact-form .btn {
+	height: 55px;
+	width: 100%;
+	background-color: #d27e04;
+	color: #ffffff;
+	font-size: 17px !important;
+	line-height: 18px;
+	padding: 0 33px;
+	border: none;
+	border-radius: 0;
+	margin: 0;
+	-webkit-transition: all .8s ease;
+	transition: all .8s ease;
+}
+#contact-form .btn:hover {
+	background-color: #c07202;
+	-webkit-transition: all .8s ease;
+	transition: all .8s ease;
+}
+#footer {
+	background: #fff;
+	padding: 50px 0 50px;
+}
+.social ul {
+	padding: 0;
+	list-style: none;
+}
+.social {
+	display: inline-block;
+	padding-right: .3em;
+	padding-bottom: .3em;
+}
+.social .a{
+	display: block;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	color: #d27e04;
+	border-radius: 50%;
+	background: #fff;
+	border: solid 1px #d27e04;
+	-webkit-transition: all .8s ease;
+	transition: all .8s ease;
+}
+.social .a:hover {
+	color: #fff;
+	background: #d27e04;
+}
+#shortcode-basic {
+	padding: 70px 0 10px;
+}
+#shortcode-button {
+	padding: 50px 0 10px;
+	width: 100%;
+	min-height: 100%;
+}
+#shortcode-button .form-horizontal {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+#shortcode-icon {
+	padding: 70px 0 10px;
+}
+#shortcode-alert {
+	padding: 70px 0 10px;
+}
+#shortcode-table {
+	padding: 70px 0 10px;
+}
+#shortcode-column {
+	padding: 50px 0 10px;
+}
+.social-icons .i{
+	color: #d27e04;
+	font-size: 30px;
+	line-height: 40px
+}
+#shortcode-alert {
+	padding: 70px 0 30px;
+}
+.alert { 
+	border: none; 
+	border-radius: 0; 
+	position: relative; 
+	font-size: 17px; 
+	line-height: 22px; 
+	padding: 16px; 
+	padding-left: 60px; 
+}
+.alert .i{ 
+	font-size: 28px; 
+	position: absolute; 
+	left: 15px; 
+	top: 13px; 
+} 
+.icon-demo .i{
+	font-size: 70px;
+	margin-right: 20px;
+}
+.scrollToTop{
+	width: 40px; 
+	height: 40px;
+	padding: 5px;
+	font-size: 30px;
+	text-align: center; 
+	background: rgba(0, 0, 0, 0.2);
+	color: white;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	border-radius: 50%;
+	display: none;
+}
+.scrollToTop:hover{
+	color: #d27e04;
+}
+.control-group .controls {
+	overflow-x: hidden;
+}
+
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-width : 768px) 
+and (max-width : 1024px) 
+and (orientation : portrait) {
+	.head-btn {
+		margin: 50px 0 100px;
+	}
+	.price-feature {
+		margin-left: 15px;
+		margin-right: 15px;
+	}
+	.btn-price {
+		padding: 7px 25px;
+	}
+	#intro {
+		padding: 30px 0 50px;
+	}
+	#policy {
+		padding: 30px 0 50px;
+	}
+	#intro .h2, #feature-2 .h2 {
+		text-align: center;
+	}
+	#intro .p, #feature-2 .p {
+		text-align: center;
+	}
+	.btn-section {
+		text-align: center;
+	}
+	#client img {
+		margin: 10px 0 10px;
+		max-height: 40px;
+	}	
+	.video-header {
+		margin: 50px 0 30px;
+	}
+	#bottom-action {
+		text-align: center;
+	}
+	.button-demo {
+		padding-bottom: 50px;
+	}
+}
+
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-width : 768px) 
+and (max-width : 1024px) 
+and (orientation : landscape) {
+	.logo {
+		margin: 100px 0 30px 0;
+	}
+	.landing .h1{
+		margin: 60px 0 60px 0;
+	}	
+	.landing-text {
+		margin: 60px 0 40px 0;
+	}
+	#client img {
+		max-height: 45px;
+	}	
+	.video-header {
+		margin: 50px 0 30px;
+	}
+}
+
+/* smart-phone ----------- */
+@media (max-width: 767px) {
+	.logo {
+		margin: 40px 0 30px 0;
+	}
+	.head-btn {
+		margin: 30px 0 80px;
+	}
+	#intro {
+		padding: 70px 0 70px;
+	}
+	#policy {
+		padding: 70px 0 70px;
+	}
+	#intro .h2, #feature-2 .h2 {
+		font-weight: 150;
+		text-align: center;
+	}
+	#intro .p, #feature-2 .p {
+		text-align: center;
+	}
+	.btn-section {
+		text-align: center;
+	}
+	#package {
+		padding-top: 80px;
+	}
+	.package-option {
+		padding: 50px 0 50px;
+	}
+	.price-box {
+		margin-bottom: 30px;
+	}
+	#client img {
+		margin: 10px 0 10px;
+	}	
+	.contact-left {
+		margin-bottom: 50px;
+	}
+	.video-header {
+		margin: 50px 0 30px;
+	}
+	#bottom-action {
+		text-align: center;
+	}
+}	
+/* iPhone 6Plus (landscape) ----------- */
+@media (max-width: 736px) {
+	.feature-img {
+		margin-top: 0;
+	}
+}
+
+/* iPhone 6 (landscape) ----------- */
+@media (max-width: 667px) {
+	.logo {
+		margin: 30px 0 30px 0;
+	}
+	.landing .h1{
+		font-size: 50px;
+		margin: 10px 0 25px 0;
+	}
+	.landing-text {
+		margin-top: 20px;
+	}
+	.subscribe .p {
+		margin: 25px auto 15px;
+	}
+	.subscribe-form {
+		margin: 20px auto 100px;
+	}
+	.action .h2 {
+		margin-top: 70px;
+	}
+	.download-cta {
+		padding: 50px 0 100px;
+	}
+}
+
+/* iPhone 5 (landscape) ----------- */
+@media (max-width: 568px){
+	.logo {
+		margin: 15px 0 15px 0;
+	}
+	.landing .h1{
+		font-size: 40px;
+		margin: 20px 0 10px 0;
+	}
+	.landing-text .p {
+		font-size: 16px !important; 
+	}
+	#intro {
+		padding-top: 50px;
+	}
+	#policy {
+		padding-top: 50px;
+	}
+	#feature {
+		padding-top: 50px;
+	}
+	#feature-2 {
+		padding: 50px 0 70px;
+	}
+	#screenshot {
+		padding-top: 70px;
+	}	
+	.screenshots {
+		padding-top: 30px;
+		padding-bottom: 70px;
+	}
+	#testi {
+		padding: 70px 0 70px;
+	}
+	.testi-item .box .message {
+		line-height: 25px;
+		font-size: 18px;
+	}
+	.action .h2 {
+		margin: 50px 0 20px;
+	}
+	.download-text .p {
+		line-height: 1.5;	
+	}	
+}
+
+/* smart phone width: 360px ----------- */
+@media (max-width: 360px) {
+	#intro .h2, #feature .h2, #feature-2 .h2 {
+		font-size: 30px;
+	}
+	#feature .inner {
+		padding-left: 15px;
+	}
+}
+
+/* iPhone 4/5 (portrait) ----------- */
+@media (max-width: 320px) {
+	.logo {
+		margin: 30px 0 20px 0;
+	}
+	.landing .h1{
+		margin: 20px 0 35px 0;
+	}
+	.subscribe-form { 
+		margin: 50px auto 110px;
+	}
+	.subscribe-form input {
+		padding: 5px 15px;
+	}
+	.subscribe-form button {
+		padding: 0 15px;
+	}
+	.action .h2 {
+		margin: 70px 0 20px;
+	}
+	.table > thead > tr > th, 
+	.table > tbody > tr > td { 
+		padding: 20px 10px; 
+	}
+}
+</style>
+
+<div class="container landing" style="padding-top: 1.8%;">
+	<div class="row">
+		<div class="col-md-7">
+			<!-- /.logo -->
+			
+				<div class="wow bounceInDown delaylogo"><img src="../Logo.png" class="img-responsive" style="margin-top: 10%;max-width: 58% !important;"></img></div>
+					<div class="landing-text wow fadeInUp" style="padding-top: 3.5%;">
+						<div class="panel background-form", style="padding-left: 30px;padding-top: 12px;">
+							<p class="p" style="font-size: 20px !important;">Tootly, the new way to travel,<br>
+							Subscribe as a pioneer and get a premium account!
+							In three simple steps:<br>
+							</p>
+							<p class="p wow bounceInRight" style="font-size: 20px !important;">1) Fill up your user info</p>
+							<p class="p wow bounceInLeft" style="font-size: 20px !important;">2) Add a vehicule</p>
+							<p class="p wow bounceInRight" style="font-size: 20px !important;">3) Add a driver (or be your own)</p>
+						</div>
+					</div>				  
+				</div>
+			<!-- /.signup form -->
+			<div class="col-md-5 wow fadeInRight delayform" style="padding-top: 2.7%;">
+				<h2 class="h2"></h2>
+				<h2 class="h2"></h2>
+				<div class="panel background-form">
+              		<div class="panel-body">
+              			<h2 class="h2">Subscribe FREE</h2>
+						<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+						<%= devise_error_messages! %>
+						<hr>
+							<div class="row">
+								<div class="col-xs-12 col-sm-6 col-md-6">
+									<div class="form-group">
+        								<%= f.text_field :firstName, placeholder:"First Name", class:"form-control input-lg" %>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-6 col-md-6">
+									<div class="form-group">
+										<%= f.text_field :lastName, placeholder:"Last Name", class:"form-control input-lg" %>
+									</div>
+								</div>
+							</div>
+							<%= f.text_field :rol, :type=>'hidden', :value=> "Owner" %>
+							<div class="form-group">
+								<%= f.email_field :email, placeholder:"Email Address", class:"form-control input-lg" %>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-sm-6 col-md-6">
+									<div class="form-group">
+										<%= f.password_field :password, autocomplete: "off", placeholder:"Password", class:"form-control input-lg" %>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-6 col-md-6">
+									<div class="form-group">
+										<%= f.password_field :password_confirmation, autocomplete: "off", placeholder:"Confirm Password", class:"form-control input-lg" %>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-md-6"><a href="../welcome/home" class="btn btn-primary btn-block btn-lg">More info</a></div>
+								<div class="col-xs-12 col-md-6">
+									<%= button_tag type: 'submit', class: "btn btn-success btn-block btn-lg" do %>
+										Register<i class="fa fa-paper-plane" style="padding-left: 6px;" aria-hidden="true"></i>
+									<% end %>
+							</div>
+						<% end %>
+					</div>
+            </div>
+		</div>
+	</div>
+</div>
+
+<script>
+	new WOW().init();
+</script>

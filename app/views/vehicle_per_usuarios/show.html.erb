@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-md-12">
+    <center>
+    <div class="container">
+      <div class="alert alert-default">
+        <p>
+          <% if(@vehicle_per_usuario.vehicule.picture_file_name.nil? ) %>
+            <div class="useravatar2">
+              <img src="/noprofilepic.jpg">
+            </div>
+          <% else %>
+            <div class="useravatar2">
+              <%= image_tag @vehicle_per_usuario.vehicule.picture %>
+            </div>
+          <% end %>
+        </p>
+        
+        <p>
+          <strong>Insurance:</strong>
+          <%= @vehicle_per_usuario.insurance %>
+        </p>
+        
+        <p>
+          <strong>Propertycard:</strong>
+          <%= @vehicle_per_usuario.propertyCard %>
+        </p>
+        
+        <p>
+          <strong>Supporttodisable:</strong>
+          <%= @vehicle_per_usuario.supportToDisable %>
+        </p>
+        
+        <p>
+          <strong>Certificategases:</strong>
+          <%= @vehicle_per_usuario.certificategases %>
+        </p>
+        
+        <p>
+          <strong>Colorvehicle:</strong>
+          <%= @vehicle_per_usuario.colorVehicle %>
+        </p>
+        
+        <p>
+          <strong>Platevehicle:</strong>
+          <%= @vehicle_per_usuario.plateVehicle %>
+        </p>
+      </div>
+    </div>
+    </center>
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_vehicle_per_usuario_path(@vehicle_per_usuario) %> |
+<%= link_to 'Back', vehicle_per_usuarios_path %>
+
+<style>
+.useravatar2 img{
+    width: 180px;
+    height: 180px;
+    max-width: 180px;
+    max-height: 180px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+}
+</style>
+<p id="notice"><%= notice %></p>

@@ -1,0 +1,119 @@
+<div class="container-fluid well span6">
+  <p id="notice"class="text-center"><%= notice %></p>
+    <div class="row-fluid">
+      <div class="col-md-3" >
+        <img src="<%= @driver.profilePic.url(:medium) %>" class="img-circle" style="width: 140px;height: 140px;">
+      </div>
+      <div class="col-md-6">
+        <h4><%= @driver.name %></h4>
+        <h6>Email: <%= @driver.email %></h6>
+        <h6>Id: <%= @driver.identityCard %></h6>
+        <h6>Telephone: <%= @driver.onePhone %></h6>
+        <h6>Card: <%= @driver.cardNumber %></h6>
+      </div>
+      <div class="col-md-3">
+        <div class="btn-group">
+          <%= link_to "Send Message", nil, class:"btn btn-info" %><br><br>
+          <%= link_to "Payments", nil, class:"btn btn-info" %><br><br>
+          <%= link_to "View History", nil, class:"btn btn-info" %>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="container-fluid well span6">
+  <p id="notice"class="text-center"><%= notice %></p>
+  <div class="row">
+    <div class="col-md-6">
+      <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
+        <p class="text-center"><b>Rut</b></p>
+        <img src="<%= @driver.rut.url(:medium) %>" alt="..." style="width: 340px;height: 440px;">
+      </a>
+    </div>
+    <div class="col-md-6">
+      <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
+        <p class="text-center"><b>Peace Certificate</b></p>
+        <img src="<%= @driver.peaceCertificate.url(:medium) %>" alt="..." style="width: 340px;height: 440px;">
+      </a>
+    </div>
+    <div class="col-md-6">
+      <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
+        <p class="text-center"><b>License Front</b></p>
+        <img src="<%= @driver.license.url(:medium) %>" alt="..." style="width: 340px;height: 440px;">
+      </a>
+    </div>
+    <div class="col-md-6">
+      <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox">
+        <p class="text-center"><b>License Behind</b></p>
+        <img src="<%= @driver.licenseBehind.url(:medium) %>" alt="..." style="width: 340px;height: 440px;">
+      </a>
+    </div>
+  </div>
+</div>
+
+<div id="lightbox" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src="" alt="" />
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+    <%= link_to 'Edit', edit_driver_path(@driver) %> |
+    <%= link_to 'Back', drivers_path %>
+  
+  </div>
+</div>
+
+<style>
+#lightbox .modal-content {
+    display: inline-block;
+    text-align: center;   
+}
+
+#lightbox .close {
+    opacity: 1;
+    color: rgb(255, 255, 255);
+    background-color: rgb(25, 25, 25);
+    padding: 5px 8px;
+    border-radius: 30px;
+    border: 2px solid rgb(255, 255, 255);
+    position: absolute;
+    top: -15px;
+    right: -55px;
+    
+    z-index:1032;
+}
+</style>
+
+<script>
+
+$(document).ready(function() {
+    var $lightbox = $('#lightbox');
+    
+    $('[data-target="#lightbox"]').on('click', function(event) {
+        var $img = $(this).find('img'), 
+            src = $img.attr('src'),
+            alt = $img.attr('alt'),
+            css = {
+                'maxWidth': $(window).width() - 10,
+                'maxHeight': $(window).height() - 10
+            };
+    
+        $lightbox.find('img').attr('src', src);
+        $lightbox.find('img').attr('alt', alt);
+        $lightbox.find('img').css(css);
+    });
+    
+    $lightbox.on('shown.bs.modal', function (e) {
+        var $img = $lightbox.find('img');
+            
+        $lightbox.find('.modal-dialog').css({'width': $img.width()});
+    });
+});
+
+</script>

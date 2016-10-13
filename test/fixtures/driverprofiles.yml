@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Usuario: one
+  TipeVehicle: MyString
+  rutAttach: MyString
+  identifyAttach: MyString
+  certfGoodStandingAttach: MyString
+  DriverLicense: MyString
+  VehicleOwnerCard: MyString
+  VehicleCapacity: MyString
+  InvalidSupport: MyString
+
+two:
+  Usuario: two
+  TipeVehicle: MyString
+  rutAttach: MyString
+  identifyAttach: MyString
+  certfGoodStandingAttach: MyString
+  DriverLicense: MyString
+  VehicleOwnerCard: MyString
+  VehicleCapacity: MyString
+  InvalidSupport: MyString

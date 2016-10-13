@@ -1,0 +1,144 @@
+<style>
+
+.stepwizard-step p {
+    margin-top: 10px;
+}
+
+.stepwizard-row {
+    display: table-row;
+}
+
+.stepwizard {
+    display: table;
+    width: 100%;
+    position: relative;
+}
+
+.stepwizard-step button[disabled] {
+    opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
+}
+
+.stepwizard-row:before {
+    top: 14px;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    z-order: 0;
+
+}
+
+.stepwizard-step {
+    display: table-cell;
+    text-align: center;
+    position: relative;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+.margin{
+    margin-top: 10%;
+}
+</style>
+
+<div class="stepwizard">
+    <div class="stepwizard-row setup-panel">
+        <div class="stepwizard-step">
+            <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
+            <p>Step 1</p>
+        </div>
+    </div>
+</div>
+<%= form_for(@references_vehicle_driver) do |f| %>
+  <% if @references_vehicle_driver.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(references_vehicle_driver.errors.count, "error") %> prohibited this references_vehicle_driver from being saved:</h2>
+
+      <ul>
+      <% references_vehicle_driver.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row" id="step-1">
+        <h3 class="text-center">Step 1</h3><br>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6">
+                      
+                    <label class="control-label">Driver id</label>
+                    <%= f.collection_select(:driver_id, Driver.where("usuario_id = ?", current_usuario.id), 
+                        :id, :name,
+                     {:prompt => false}, {:class=>"form-control", :style=>"padding:6px 0px;"}) %>
+                     
+                    <label class="control-label">User id</label>
+                    <%= f.collection_select(:VehiclePerUsuario_id, VehiclePerUsuario.where("usuario_id = ?", current_usuario.id), 
+                        :id, :nameVehicle,
+                     {:prompt => false}, {:class=>"form-control", :style=>"padding:6px 0px;"}) %>
+                     
+                    <%= f.text_field :usuario_id, type: :hidden, value: current_usuario.id %>
+                    
+                    <label class="control-label">Start Date</label>
+                    <%= f.text_field :fechaInicio, id: "datepicker", :class=>"form-control" %>
+                    
+                    </div>
+            
+                    <div class="col-xs-6 col-sm-6">
+              
+                    <label class="control-label">Commission</label>
+                    <%= f.text_field :commission, placeholder: "", :class=>"form-control"  %>
+                    
+                    <%= f.text_field :token, type: :hidden %>
+                    
+                    <label class="control-label">Description</label>
+                    <%= f.text_area :description, :class => "tinymce", placeholder: "", :class=>"form-control"  %>
+                    
+                    <div class="col-xs-6 col-sm-6">
+                    <label class="control-label">Hour Start</label>
+                    <%= f.text_field :hourStart, type: "time", :class=>"form-control" %>
+                    </div>
+                    
+                    <div class="col-xs-6 col-sm-6">
+                    <label class="control-label">Hour End</label>
+                    <%= f.text_field :hourEnd, type: "time", :class=>"form-control" %>  
+                    </div>
+                    
+                    </div>
+                </div>
+              </div>
+          </div>
+      </div>
+            
+              <br/>
+              <div class=row>
+                <div class="col-md-6 col-md-offset-3">
+                  <div class="form-group">
+                    <%= f.submit  "Finish", :class => "btn btn-primary btn-lg btn-block" %>
+                  </div>
+                </div>
+              </div>
+              
+
+<% end %>
+
+<script>
+$(function() {
+  $('#datepicker').datepicker();
+});
+$(function() {
+  $('#datepicker2').datepicker();
+});
+</script>

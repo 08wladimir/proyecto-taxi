@@ -1,0 +1,1 @@
+json.array! @references_vehicle_drivers, partial: 'references_vehicle_drivers/references_vehicle_driver', as: :references_vehicle_driver

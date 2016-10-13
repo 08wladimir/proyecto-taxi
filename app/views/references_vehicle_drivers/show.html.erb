@@ -1,0 +1,303 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="card hovercard">
+      
+      <div class="row">
+        <div class="col-md-12">
+          <span class="card-title tituloPaneles pull-center">Reference</span>
+        </div>
+      </div>
+      
+      <hr>
+      
+      <div class="hovercard">
+        <div class="useravatar2">
+          <%= image_tag @references_vehicle_driver.driver.profilePic.url(:medium) %> <div class="fa fa-chain fa-2x"></div><%= image_tag @references_vehicle_driver.VehiclePerUsuario.vehicule.picture %>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-6">
+          <label class="pull-left">Date start:</label>
+        </div>
+        <div class="col-md-6">
+          <%= @references_vehicle_driver.fechaInicio %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label class="pull-left">Date End:</label>
+        </div>
+        <div class="col-md-6">
+          <%= @references_vehicle_driver.fechaFin %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label class="pull-left">Commission:</label>
+        </div>
+        <div class="col-md-6">
+          <%= @references_vehicle_driver.commission %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label class="pull-left">Token:</label>
+        </div>
+        <div class="col-md-6">
+          <%= @references_vehicle_driver.token %>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card hovercard">
+      
+      <div class="row">
+        <div class="col-md-12">
+          <span class="card-title tituloPaneles pull-center">Driver And Vehicle</span>
+        </div>
+      </div>
+      
+      <hr>
+      
+      <div class="hovercard">
+        <div class="useravatar2">
+          <%= image_tag @references_vehicle_driver.driver.profilePic.url(:medium) %>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-6">
+          <label class="pull-left">Name:</label>
+        </div>
+        <div class="col-md-6">
+          <%= @references_vehicle_driver.driver.name %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label class="pull-left">Identity Card:</label>
+        </div>
+        <div class="col-md-6">
+          <%= @references_vehicle_driver.driver.identityCard %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label class="pull-left">Email:</label>
+        </div>
+        <div class="col-md-6">
+          <%= @references_vehicle_driver.driver.email %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label class="pull-left">One Phone:</label>
+        </div>
+        <div class="col-md-6">
+          <%= @references_vehicle_driver.driver.onePhone %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label class="pull-left">Two Phone:</label>
+        </div>
+        <div class="col-md-6">
+          <%= @references_vehicle_driver.driver.twoPhone %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label class="pull-left">Card Number:</label>
+        </div>
+        <div class="col-md-6">
+          <%= @references_vehicle_driver.driver.cardNumber %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label class="pull-left">Date:</label>
+        </div>
+        <div class="col-md-6">
+          <%= @references_vehicle_driver.driver.date %>
+        </div>
+      </div>
+      
+      <hr>
+      
+      <div class="hovercard">
+        <div class="useravatar2">
+          <%= image_tag @references_vehicle_driver.VehiclePerUsuario.vehicule.picture %>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-6">
+          <label class="pull-left">Brand:</label>
+        </div>
+        <div class="col-md-6">
+          <%= @references_vehicle_driver.VehiclePerUsuario.vehicule.brand %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label class="pull-left">Model:</label>
+        </div>
+        <div class="col-md-6">
+          <%= @references_vehicle_driver.VehiclePerUsuario.vehicule.model %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label class="pull-left">Insurance:</label>
+        </div>
+        <div class="col-md-6">
+          <%= @references_vehicle_driver.VehiclePerUsuario.insurance %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label class="pull-left">Property Card:</label>
+        </div>
+        <div class="col-md-6">
+          <%= @references_vehicle_driver.VehiclePerUsuario.propertyCard %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label class="pull-left">Plate Vehicle:</label>
+        </div>
+        <div class="col-md-6">
+          <%= @references_vehicle_driver.VehiclePerUsuario.plateVehicle %>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card hovercard">
+      <div class="row">
+        <div class="col-md-12">
+          <span class="card-title tituloPaneles pull-center">History</span>
+        </div>
+      </div>
+      
+      <hr>
+      
+      
+      
+    </div>
+  </div>
+</div>
+
+<style>
+.espacio{
+    margin-top: 10px;
+}
+.tituloPaneles{
+    color: #171111;
+    font-size: 25px;
+    font-weight: bold;
+    font-variant: small-caps;
+    text-align: center;
+    line-height: 2.1;
+}
+.verticalCenter{
+    text-align: left;
+    line-height: 3.0;
+}
+.card {
+    margin-top: 20px;
+    padding: 30px;
+    background-color: rgba(214, 224, 226, 0.2);
+    -webkit-border-top-left-radius:5px;
+    -moz-border-top-left-radius:5px;
+    border-top-left-radius:5px;
+    -webkit-border-top-right-radius:5px;
+    -moz-border-top-right-radius:5px;
+    border-top-right-radius:5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.card.hovercard {
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    text-align: center;
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, 1);
+}
+.card.hovercard .card-background {
+    height: 150px;
+}
+.card-background img {
+    -webkit-filter: blur(25px);
+    -moz-filter: blur(25px);
+    -o-filter: blur(25px);
+    -ms-filter: blur(25px);
+    filter: blur(25px);
+    margin-left: -100px;
+    margin-top: -200px;
+    min-width: 130%;
+}
+.card.hovercard .useravatar {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+}
+
+.useravatar2 img{
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+}
+.card.hovercard .useravatar img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+}
+.card.hovercard .card-info {
+    position: absolute;
+    bottom: 14px;
+    left: 0;
+    right: 0;
+}
+.card.hovercard .card-info .card-title {
+    padding:0 5px;
+    font-size: 20px;
+    line-height: 1;
+    color: #262626;
+    background-color: rgba(255, 255, 255, 0.1);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.card.hovercard .card-info {
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 20px;
+    color: #737373;
+    text-overflow: ellipsis;
+}
+.card.hovercard .bottom {
+    padding: 0 20px;
+    margin-bottom: 17px;
+}
+.btn-pref .btn {
+    -webkit-border-radius:0 !important;
+}
+</style>

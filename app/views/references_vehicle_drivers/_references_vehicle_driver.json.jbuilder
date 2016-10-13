@@ -1,0 +1,2 @@
+json.extract! references_vehicle_driver, :id, :driver_id, :usuario_id, :VehiclePerUsuario_id, :fechaInicio, :fechaFin, :commission, :token, :description, :created_at, :updated_at
+json.url references_vehicle_driver_url(references_vehicle_driver, format: :json)

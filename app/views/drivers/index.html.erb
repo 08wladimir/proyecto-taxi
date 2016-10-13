@@ -1,0 +1,40 @@
+<style>
+  .tamano{
+    font-size: 0.6em;
+  }
+  .sizex{
+    font-size: 1.5em;
+  }
+</style>
+<p id="notice"><%= notice %></p>
+<h2 class="text-center">Drivers<br><%= link_to 'New Driver', new_driver_path, class:"btn btn-default" %></h2><br>
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>identityCard</th>
+        <th>email</th>
+        <th>Phone</th>
+        <th colspan="3">Actions</th>
+      </tr>
+    </thead>
+  
+    <tbody class=" table table-striped">
+      <% @drivers.each do |driver| %>
+        <tr>
+          <td><%= driver.name %></td>
+          <td><%= driver.identityCard %></td>
+          <td><%= driver.email %></td>
+          <td><%= driver.onePhone %></td>
+          <td><%= link_to '<i class="fa fa-eye sizex"></i>'.html_safe, driver, class:"btn btn-primary tamano" %>
+          <%= link_to '<i class="fa fa-pencil sizex"></i>'.html_safe, edit_driver_path(driver), class:"btn btn-success tamano" %>
+          <%= link_to '<i class="fa fa-trash sizex"></i>'.html_safe, driver, method: :delete, data: { confirm: 'Do you want to remove this driver?' }, class:"btn btn-danger tamano" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= will_paginate @drivers, renderer: BootstrapPagination::Rails %>

@@ -1,0 +1,276 @@
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card hovercard">
+            <div class="card-background">
+                <img class="card-bkimg" alt="" src="../Banner/BannerHome.jpg">
+                <!-- http://lorempixel.com/850/280/people/9/ -->
+            </div>
+            <div class="useravatar">
+                <%= image_tag current_usuario.pictureProfile.url(:medium) %>
+            </div>
+            <div class="card-info">
+                <span class="card-title"><%= current_usuario.firstName %> <%= current_usuario.lastName %></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card hovercard">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="card-title tituloPaneles pull-left">Drivers</span>
+                            <div class="espacio">
+                                <button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#myModal">New Driver</button>
+                            </div>
+                        </div>
+                    </div>
+                    <% @drivers.each do |driver| %>
+                        <hr>
+                        <div class="hovercard">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="useravatar2">
+                                        <%= image_tag driver.profilePic.url(:medium) %>
+                                    </div>
+                                </div>
+                                <div class="col-md-9 verticalCenter">
+                                    <%= driver.name %>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+            <div class="col-md-4  borderDivLeft borderDivRight">
+                <div class="card hovercard">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="card-title tituloPaneles pull-left">Vehicle</span>
+                            <div class="espacio">
+                                <button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#myModal2">New Vehicle</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <% @vehicle_per_usuarios.each do |vehicle_per_usuario| %>
+                        <hr>
+                        <div class="hovercard">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="useravatar2">
+                                        <%= image_tag vehicle_per_usuario.vehicule.picture.url(:medium) %>
+                                    </div>
+                                </div>
+                                <div class="col-md-9 verticalCenter">
+                                    <%= vehicle_per_usuario.vehicule.brand %>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                    
+                </div>
+            </div>
+            <div class="col-md-4 borderDivLeft">
+                <div class="card hovercard">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="card-title tituloPaneles pull-left">History</span>
+                            <div class="espacio">
+                                <button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#myModal3">New History</button>
+                            </div>
+                        </div>
+                    </div>
+                    <% @historyLink.each do |historyLink| %>
+                        <hr>
+                        <div class="hovercard">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="useravatar2">
+                                        <%= image_tag historyLink.driver.profilePic.url(:medium) %> <div class="fa fa-chain"></div><%= image_tag historyLink.VehiclePerUsuario.vehicule.picture %>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 verticalCenter">
+                                    <center><%= historyLink.fechaInicio %> - <%= historyLink.fechaFin %></center>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Drivers</h4>
+            </div>
+            <div class="modal-body">
+                <%= render 'drivers/form' %>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Vehicles</h4>
+            </div>
+            <div class="modal-body">
+                <%= render 'vehicle_per_usuarios/form' %>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal3" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Histories</h4>
+            </div>
+            <div class="modal-body">
+                <%= render 'references_vehicle_drivers/form' %>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.espacio{
+    margin-top: 10px;
+}
+.tituloPaneles{
+    color: #171111;
+    font-size: 25px;
+    font-weight: bold;
+    font-variant: small-caps;
+    text-align: center;
+    line-height: 2.1;
+}
+.verticalCenter{
+    text-align: left;
+    line-height: 3.0;
+}
+.card {
+    margin-top: 20px;
+    padding: 30px;
+    background-color: rgba(214, 224, 226, 0.2);
+    -webkit-border-top-left-radius:5px;
+    -moz-border-top-left-radius:5px;
+    border-top-left-radius:5px;
+    -webkit-border-top-right-radius:5px;
+    -moz-border-top-right-radius:5px;
+    border-top-right-radius:5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.card.hovercard {
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    text-align: center;
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, 1);
+}
+.card.hovercard .card-background {
+    height: 150px;
+}
+.card-background img {
+    -webkit-filter: blur(25px);
+    -moz-filter: blur(25px);
+    -o-filter: blur(25px);
+    -ms-filter: blur(25px);
+    filter: blur(25px);
+    margin-left: -100px;
+    margin-top: -200px;
+    min-width: 130%;
+}
+.card.hovercard .useravatar {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+}
+
+.useravatar2 img{
+    width: 50px;
+    height: 50px;
+    max-width: 50px;
+    max-height: 50px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+}
+.card.hovercard .useravatar img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+}
+.card.hovercard .card-info {
+    position: absolute;
+    bottom: 14px;
+    left: 0;
+    right: 0;
+}
+.card.hovercard .card-info .card-title {
+    padding:0 5px;
+    font-size: 20px;
+    line-height: 1;
+    color: #262626;
+    background-color: rgba(255, 255, 255, 0.1);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.card.hovercard .card-info {
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 20px;
+    color: #737373;
+    text-overflow: ellipsis;
+}
+.card.hovercard .bottom {
+    padding: 0 20px;
+    margin-bottom: 17px;
+}
+.btn-pref .btn {
+    -webkit-border-radius:0 !important;
+}
+</style>
+
+<script>
+$(function() {
+  $('#datepicker').datepicker();
+});
+$(function() {
+  $('#datepicker2').datepicker();
+});
+</script>
