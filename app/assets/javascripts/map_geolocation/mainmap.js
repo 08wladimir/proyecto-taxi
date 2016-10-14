@@ -1,6 +1,6 @@
 var google;
-var CentralPark;
 var marker;
+var CentralPark;
 
 google.maps.event.addDomListener(window, "load", () => {
     const user_location = new UserLocation(() => {
