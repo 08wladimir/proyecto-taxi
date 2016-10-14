@@ -1,8 +1,7 @@
-var google;
-var marker;
-var CentralPark;
+google.maps.event.addDomListener(window, 'load', initialize);
 
-google.maps.event.addDomListener(window, "load", () => {
+function initialize() {
+
     const user_location = new UserLocation(() => {
         const mapOptions = {
             zoom: 18,
@@ -56,7 +55,9 @@ google.maps.event.addDomListener(window, "load", () => {
             calculateDistance(place, user_location);
         });
     });
-});
+
+  }
+
 
 
 function calculateDistance(place, origen) {
