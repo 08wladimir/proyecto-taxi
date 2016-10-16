@@ -7,7 +7,7 @@
 <% @conductores = Driver.where("usuario_id = ?", current_usuario.id).take %>
 <% @autos = VehiclePerUsuario.where("usuario_id = ?", current_usuario.id).take %>
 
-<% if (current_usuario.rol == "Owner") && (@conductores.nil? && !@autos.nil?) %>
+<% if (current_usuario.rol == "Owner") && (@conductores.nil? && @autos.nil?) %>
   <!-- !@conductores.nil? == false -->
   <div id="my-modal" class="modal fade in">
     <div class="modal-dialog">
@@ -39,10 +39,10 @@
 <div class="row">
 <div class="col-md-3 col-sm-6 col-xs-12">
   <div class="info-box">
-    <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
+    <span class="info-box-icon bg-aqua"><i class="fa fa-users"></i></span>
 
     <div class="info-box-content">
-      <span class="info-box-text">CPU Traffic</span>
+      <span class="info-box-text">Clients Last</span>
       <span class="info-box-number">90<small>%</small></span>
     </div>
     <!-- /.info-box-content -->

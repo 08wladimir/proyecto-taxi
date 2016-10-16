@@ -4,7 +4,7 @@ class VehiclePerUsuariosController < ApplicationController
   # GET /vehicle_per_usuarios
   # GET /vehicle_per_usuarios.json
   def index
-    @vehicle_per_usuarios = VehiclePerUsuario.paginate(:page => params[:page], per_page: 10)
+    @vehicle_per_usuarios = VehiclePerUsuario.all
   end
 
   # GET /vehicle_per_usuarios/1

@@ -4,7 +4,7 @@ class ReferencesVehicleDriversController < ApplicationController
   # GET /references_vehicle_drivers
   # GET /references_vehicle_drivers.json
   def index
-    @references_vehicle_drivers = ReferencesVehicleDriver.paginate(:page => params[:page], per_page: 10)
+    @references_vehicle_drivers = ReferencesVehicleDriver.all
   end
 
   # GET /references_vehicle_drivers/1

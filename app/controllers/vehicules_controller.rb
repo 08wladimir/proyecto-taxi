@@ -4,7 +4,7 @@ class VehiculesController < ApplicationController
   # GET /vehicules
   # GET /vehicules.json
   def index
-    @vehicules = Vehicule.paginate(:page => params[:page], per_page: 10)
+    @vehicules = Vehicule.all
   end
 
   # GET /vehicules/1

@@ -19,10 +19,14 @@ class SessionsController < Devise::SessionsController
     sign_in(resource_name, resource)
     yield resource if block_given?
     #respond_with resource, location: after_sign_in_path_for(resource)
-    if current_usuario.paymentOption.nil? || current_usuario.paymentOption == ""
-      redirect_to edit_usuario_registration_path(current_usuario)
-    else  
+    if current_usuario.rol == "Administrator"
       redirect_to welcome_controlpanel_path
+    else
+      if current_usuario.paymentOption.nil? || current_usuario.paymentOption == ""
+        redirect_to edit_usuario_registration_path(current_usuario)
+      else  
+        redirect_to welcome_controlpanel_path
+      end
     end
   end
 

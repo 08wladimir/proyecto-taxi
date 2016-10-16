@@ -32,8 +32,6 @@ gem 'paperclip', '~> 4.3', '>= 4.3.6'
 gem 'simple-navigation-bootstrap'
 gem 'simple-navigation'
 gem 'jquery-ui-rails'
-gem 'will_paginate-bootstrap'
-
 
 group :production do
   gem 'mysql2', '~>0.3.9'
