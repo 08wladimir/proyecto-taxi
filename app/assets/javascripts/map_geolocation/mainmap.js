@@ -1,9 +1,9 @@
-google.maps.event.addDomListener(window, 'load', initialize);
+'use strict';
 
-function initialize() {
+google.maps.event.addDomListener(window, "load", function () {
 
-    const user_location = new UserLocation(() => {
-        const mapOptions = {
+    var user_location = new UserLocation(function () {
+        var mapOptions = {
             zoom: 18,
             center: {
                 lat: user_location.latitude,
@@ -11,32 +11,32 @@ function initialize() {
             }
         };
 
-        const map_elements = document.getElementById('map');
-        const map = new google.maps.Map(map_elements, mapOptions);
+        var map_elements = document.getElementById('map');
+        var map = new google.maps.Map(map_elements, mapOptions);
 
         TestMarker();
 
         function addMarker(location) {
-            marker = new google.maps.Marker({
+            var marker = new google.maps.Marker({
                 position: location,
-                map
+                map: map
             });
         }
 
         // Testing the addMarker function
         function TestMarker() {
-            CentralPark = new google.maps.LatLng(user_location.latitude, user_location.longitude);
-            addMarker(CentralPark);
+            var centralPark = new google.maps.LatLng(user_location.latitude, user_location.longitude);
+            addMarker(centralPark);
         }
 
-        const search_input = document.getElementById('search-place');
-        const autocomplete = new google.maps.places.Autocomplete(search_input);
+        var search_input = document.getElementById('search-place');
+        var autocomplete = new google.maps.places.Autocomplete(search_input);
 
         autocomplete.bindTo("bounds", map);
 
-        google.maps.event.addListener(autocomplete, "place_changed", () => {
+        google.maps.event.addListener(autocomplete, "place_changed", function () {
 
-            const place = autocomplete.getPlace();
+            var place = autocomplete.getPlace();
 
             if (place.geometry.viewport) {
                 map.fitBounds(place.geometry.viewport);
@@ -44,8 +44,7 @@ function initialize() {
                 map.setCenter(place.geometry.location);
                 map.setZomm("18");
             }
-
-            marker.setPlace({
+            maker = marker.setPlace({
                 placeId: place.place_id,
                 location: place.geometry.location
             });
@@ -55,27 +54,24 @@ function initialize() {
             calculateDistance(place, user_location);
         });
     });
-
-  }
-
-
+});
 
 function calculateDistance(place, origen) {
-    const origin = new google.maps.LatLng(origen.latitude, origen.longitude);
+    var origin = new google.maps.LatLng(origen.latitude, origen.longitude);
 
-    const service = new google.maps.DistanceMatrixService();
+    var service = new google.maps.DistanceMatrixService();
 
     service.getDistanceMatrix({
         origins: [origin],
         destinations: [place.geometry.location],
         travelMode: google.maps.TravelMode.DRIVING
-    }, (respuesta, status) => {
+    }, function (respuesta, status) {
         //Se ejecuta cuando el servicio de distancia de Maps no responde
-        const info = respuesta.rows[0].elements[0];
+        var info = respuesta.rows[0].elements[0];
 
-        const distancia = info.distance.text;
-        const duracion = info.duration.text;
+        var distancia = info.distance.text;
+        var duracion = info.duration.text;
 
-        document.getElementById('info').innerHTML = alert(`These ${distancia} and ${duracion} from your destination.`);
+        document.getElementById('info').innerHTML = alert("These " + distancia + " and " + duracion + " from your destination.");
     });
 }
