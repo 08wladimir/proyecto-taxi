@@ -5,6 +5,9 @@
   .sizex{
     font-size: 1.5em;
   }
+  .visiblenone{
+    visibility: hidden;
+  }
 </style>
 
 <h2 class="text-center">Vehicles<br><%= link_to 'New Vehicule', new_vehicule_path, class:"btn btn-default" %></h2><br>
@@ -28,9 +31,9 @@
         <td><%= vehicule.model %></td>
         <td><%= vehicule.capacity %></td>
         <% if vehicule.picture_file_name.nil? %>
-        <td><i class="fa fa-times-circle"></i></td>
+        <td><a class="visiblenone">z</a><i class="fa fa-times-circle fa-2x" style="color:red;"></i></td>
         <%else%>
-        <td><i class="fa fa-check-circle"></i></td>
+        <td><a class="visiblenone">a</a><i class="fa fa-check-circle fa-2x" style="color:green;"></i></td>
         <%end%>
         <td>
           <%= link_to '<i class="fa fa-eye sizex"></i>'.html_safe, vehicule, class:"btn btn-primary tamano" %>
