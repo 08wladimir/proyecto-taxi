@@ -3,7 +3,7 @@
 <head>
   <title>Tootly</title>
   <meta charset="utf-8">
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3lmGPd_Trrp4ft5iW9pSDvN6wlLoJh1Q&libraries=places"></script>
+  
 <!--  <script type="text/javascript" src="/assets/src/user_location.js"></script><!--Este se debe importar primero -->
  <!-- <script type="text/javascript" src="/assets/src/mainmaps.js"></script> -->
  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -38,6 +38,8 @@
       <%end%>
     <%end%>
     
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3lmGPd_Trrp4ft5iW9pSDvN6wlLoJh1Q&libraries=places&callback=initAutocomplete"
+         async defer></script>
   </body>
  
 </html>

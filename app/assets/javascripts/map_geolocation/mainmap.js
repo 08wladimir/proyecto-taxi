@@ -1,59 +1,76 @@
-'use strict';
 
-google.maps.event.addDomListener(window, "load", function () {
+function initAutocomplete() {
+    
+    if (navigator.geolocation) {
+        //Si tienen la api de geolocalización
+        navigator.geolocation.getCurrentPosition(function (localizacion) {
+            //Esto se ejecuta cuando ya tenemos la geolocalización
+           var latitude1 = localizacion.coords.latitude;
+            var longitude2 = localizacion.coords.longitude;
 
-    var user_location = new UserLocation(function () {
-        var mapOptions = {
-            zoom: 18,
-            center: {
-                lat: user_location.latitude,
-                lng: user_location.longitude
-            }
-        };
-
-        var map_elements = document.getElementById('map');
-        var map = new google.maps.Map(map_elements, mapOptions);
-
-
-
-
-        var search_input = document.getElementById('search-place');
-        var autocomplete = new google.maps.places.Autocomplete(search_input);
-
-        autocomplete.bindTo("bounds", map);
-
-        google.maps.event.addListener(autocomplete, "place_changed", function () {
-
-            var place = autocomplete.getPlace();
-
-            if (place.geometry.viewport) {
-                map.fitBounds(place.geometry.viewport);
-            } else {
-                map.setCenter(place.geometry.location);
-                map.setZomm("18");
-            }
-
-            calculateDistance(place, user_location);
         });
+    } else {
+        alert("Tu navigador no soporta las funcionalidades de este sitio");
+    }
+    
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -33.8688, lng: 151.2195},
+    zoom: 13,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
+
+  // Create the search box and link it to the UI element.
+  var input = document.getElementById('pac-input');
+  var searchBox = new google.maps.places.SearchBox(input);
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+  // Bias the SearchBox results towards current map's viewport.
+  map.addListener('bounds_changed', function() {
+    searchBox.setBounds(map.getBounds());
+  });
+
+  var markers = [];
+  // Listen for the event fired when the user selects a prediction and retrieve
+  // more details for that place.
+  searchBox.addListener('places_changed', function() {
+    var places = searchBox.getPlaces();
+
+    if (places.length == 0) {
+      return;
+    }
+
+    // Clear out the old markers.
+    markers.forEach(function(marker) {
+      marker.setMap(null);
     });
-});
+    markers = [];
 
-function calculateDistance(place, origen) {
-    var origin = new google.maps.LatLng(origen.latitude, origen.longitude);
+    // For each place, get the icon, name and location.
+    var bounds = new google.maps.LatLngBounds();
+    places.forEach(function(place) {
+      var icon = {
+        url: place.icon,
+        size: new google.maps.Size(71, 71),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(17, 34),
+        scaledSize: new google.maps.Size(25, 25)
+      };
 
-    var service = new google.maps.DistanceMatrixService();
+      // Create a marker for each place.
+      markers.push(new google.maps.Marker({
+        map: map,
+        icon: icon,
+        title: place.name,
+        position: place.geometry.location
+      }));
 
-    service.getDistanceMatrix({
-        origins: [origin],
-        destinations: [place.geometry.location],
-        travelMode: google.maps.TravelMode.DRIVING
-    }, function (respuesta, status) {
-        //Se ejecuta cuando el servicio de distancia de Maps no responde
-        var info = respuesta.rows[0].elements[0];
-
-        var distancia = info.distance.text;
-        var duracion = info.duration.text;
-
-        document.getElementById('info').innerHTML = alert("These " + distancia + " and " + duracion + " from your destination.");
+      if (place.geometry.viewport) {
+        // Only geocodes have viewport.
+        bounds.union(place.geometry.viewport);
+      } else {
+        bounds.extend(place.geometry.location);
+      }
     });
+    map.fitBounds(bounds);
+  });
 }
