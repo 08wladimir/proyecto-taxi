@@ -14,20 +14,8 @@ google.maps.event.addDomListener(window, "load", function () {
         var map_elements = document.getElementById('map');
         var map = new google.maps.Map(map_elements, mapOptions);
 
-        TestMarker();
 
-        function addMarker(location) {
-            var marker = new google.maps.Marker({
-                position: location,
-                map: map
-            });
-        }
 
-        // Testing the addMarker function
-        function TestMarker() {
-            var centralPark = new google.maps.LatLng(user_location.latitude, user_location.longitude);
-            addMarker(centralPark);
-        }
 
         var search_input = document.getElementById('search-place');
         var autocomplete = new google.maps.places.Autocomplete(search_input);
@@ -44,12 +32,6 @@ google.maps.event.addDomListener(window, "load", function () {
                 map.setCenter(place.geometry.location);
                 map.setZomm("18");
             }
-            maker = marker.setPlace({
-                placeId: place.place_id,
-                location: place.geometry.location
-            });
-
-            marker.setVisible(true);
 
             calculateDistance(place, user_location);
         });
