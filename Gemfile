@@ -37,11 +37,6 @@ group :production do
   gem 'mysql2', '~>0.3.9'
 end
 
-group :development do
-  gem "letter_opener"
-end
-
-
 # Fin Gemas Adicionales
 
 # Use ActiveModel has_secure_password
@@ -56,6 +51,7 @@ end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem "letter_opener"
 end
 
 group :development do
@@ -64,5 +60,6 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  
 end
 

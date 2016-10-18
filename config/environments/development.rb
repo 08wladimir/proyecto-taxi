@@ -18,6 +18,8 @@ Rails.application.configure do
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
+  
+  config.action_mailer.delivery_method = :letter_opener
 
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
@@ -38,5 +40,5 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-  config.action_mailer.delivery_method = :letter_opener
+  
 end
