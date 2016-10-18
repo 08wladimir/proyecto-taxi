@@ -34,7 +34,7 @@ gem 'simple-navigation'
 gem 'jquery-ui-rails'
 
 group :production do
-  gem 'mysql2', '~>0.3.9'
+  #gem 'mysql2', '~>0.3.9'
 end
 
 # Fin Gemas Adicionales
