@@ -2,7 +2,7 @@
   .marginbot{
     margin-bottom: -100px%;
   }
-  .margintop{
+ z .margintop{
     margin-top: -100px;
   }.margintp{
     margin-top: -200px;
@@ -26,41 +26,100 @@
   }
 }
 
-@media screen and (max-width: 768px) {
-  p,.btn,input,div,span,h4 {
-    font-size: 90%;
-  }
-  h1 {
-    font-size: 20px;  
-  }
-  h2 {
-    font-size: 18px;  
-  }
-  h3 {
-    font-size: 16px;  
-  }
-}
-
 body {
   font-family: 'Roboto Slab', serif !important;
 }
 
-.li{
+.lim{
   border: 1px solid #000 !important;
 }
-</style>
+.opaque{
+    background-color: rgba(0,0,0,0.5);
+  /* Transparent = rgba(0,0,0,0) / Translucent = (0,0,0,0.5)  */
+    height: 30px !important;
+    border-bottom: 0px;
+}
+lim {
+    float: left;
+    width:250px;
+    background-color: rgba(255, 255, 255, 0.67);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+limm {
+    float: left;
+    width:250px;
+    margin-bottom:10px;
+    margin-top:10px;
+}
 
+lim a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+lim a:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.51);
+    color: white;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.city{
+  width:600px;
+  background-color:rgba(0, 0, 0, 0.58);
+  height:140px;
+  margin-top:-18px;
+}
+.style-5 input[type="text"] {
+  padding: 10px;
+  box-shadow: inset 1px 1px 2px 0 #707070;
+  transition: box-shadow 0.3s;
+  background-color: rgba(255, 255, 255, 0.51);
+  border:0px;
+}
+</style>
+<body>
 <div class="carousel-inner">
   <div class="item active"><img src="/Banner/BannerHome.jpg" style="width:100%" data-src="/Banner/BannerHome.jpg" alt="First slide">
     <div class="container">
       <div class="carousel-caption paddingcenter">
         <h1 style="font-size: 480%;"><font color="white">MOVE WITH ELEGANCE</font></h1>
         <h3><font color="white">CHOOSE YOUR SERVICE MODE</font></h3>    
+
+<ul class="navbar">
+  <lim><a href="javascript:void(0)" onclick="openCity('one')">ONE WAY</a></lim>
+  <lim><a href="javascript:void(0)" onclick="openCity('hour')">HOURLY</a></lim>
+</ul>
+
+<div id="one" class="city">
+  <ul class="input-list style-5">
+    <limm>
+      <input type="text" placeholder="FROM">
+    </limm>
+    <limm>
+      <input type="text" placeholder="TO">
+    </limm>
+  </ul><br/>
+  <ul class="input-list style-5">
+    <limm>
+      <input type="text" placeholder="">
+    </limm>
+    <limm>
+      <input type="text" placeholder="">
+    </limm>
+  </ul>
+</div>
+
+<div id="hour" class="city">
+  <h2>Hourly</h2>
+</div>
       </div>
     </div>
   </div>
 </div>
-
     <div>
         <h2 class="text-center" style="font-size: 40px;margin-top: 30px;margin-bottom: -5px;">BOOK YOUR RIDE IN 3 EASY STEPS</h2>
         <div class="container">
@@ -172,7 +231,7 @@ body {
     
       <img src="/Banner/store.png" style="width:100%" data-src="/Banner/store.png" alt="First slide">
     
-    
+    </body>
     <footer class="sizefooter">
         <div class="container">
             <div class="row white">
@@ -189,3 +248,15 @@ body {
             </div>
         </div>
     </footer>
+
+<script>
+openCity("one")
+function openCity(cityName) {
+    var i;
+    var x = document.getElementsByClassName("city");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";
+    }
+    document.getElementById(cityName).style.display = "block";
+}
+</script>

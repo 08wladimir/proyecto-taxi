@@ -1,8 +1,9 @@
 class UserController < ApplicationController
+    before_action :set_usuario, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_usuario!
 
     def index
-        @users = Usuario.paginate(:page => params[:page], per_page: 10)
+        @users = Usuario.all
     end
 
     def show
@@ -19,6 +20,15 @@ class UserController < ApplicationController
     end
 
     def update
+        respond_to do |format|
+      if @user.update(vehicle_per_usuario_params)
+        format.html { redirect_to @vehicle_per_usuario, notice: 'Vehicle per usuario was successfully updated.' }
+        format.json { render :show, status: :ok, location: @vehicle_per_usuario }
+      else
+        format.html { render :edit }
+        format.json { render json: @vehicle_per_usuario.errors, status: :unprocessable_entity }
+      end
+    end
     end
 
 
